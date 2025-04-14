@@ -41,3 +41,13 @@ Route::post('/locations/create', [LocationController::class, 'store'])->name('lo
 /* ----------------------------------------------------------- ** COURSES ** ----------------------------------------------------------- */
 Route::get('/courses/create', [CourseController::class, 'create'])->name('courses.create');
 Route::post('/courses/create', [CourseController::class, 'store'])->name('courses.store');
+
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'verified',
+])->group(function () {
+    Route::get('/dashboard', function () {
+        return view('dashboard');
+    })->name('dashboard');
+});

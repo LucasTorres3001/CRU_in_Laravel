@@ -15,14 +15,15 @@ use App\Http\Controllers\CourseController;
 | routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
-*/
 
 Route::get('/', function () {
     return view('welcome');
 });
+*/
+
 /* ------------------------------------------------------------ ** EMPLOYEES ** ------------------------------------------------------------ */
-Route::get('/home', [EmployeeController::class, 'index'])->name('home');
-Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create');
+Route::get('/', [EmployeeController::class, 'index'])->name('home');
+Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create')->middleware('auth');
 Route::post('/employees/create', [EmployeeController::class,'store'])->name('employees.store');
 Route::get('/employees/dashboard', [EmployeeController::class, 'dashboard'])->name('employees.dashboard');
 Route::get('/employees/edit/{slug}', [EmployeeController::class, 'edit'])->name('employees.edit');

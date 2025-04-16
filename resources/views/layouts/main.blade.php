@@ -18,21 +18,53 @@
                         </button>
                         <div class="collapse navbar-collapse" id="navbarNav">
                             <ul class="navbar-nav">
-                            <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="{{route('home')}}">Home</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('employees.create')}}">Create employee</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('employees.dashboard')}}">Employees</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="{{route('courses.create')}}">Create courses</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link enable" href="{{route('locations.create')}}" aria-disabled="false">Create locations</a>
-                            </li>
+                                <li class="nav-item">
+                                    <a class="nav-link active" aria-current="page" href="{{route('home')}}" title="Home">
+                                        Home
+                                    </a>
+                                </li>
+                                <li class="nav-item">
+                                    <a class="nav-link" href="{{route('employees.create')}}" title="Create employees">
+                                        Create employee
+                                    </a>
+                                </li>
+                                @auth
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('employees.dashboard')}}" title="Employees">
+                                            My employees
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('courses.create')}}" title="Create courses">
+                                            Create courses
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="{{route('locations.create')}}" title="Create locations">
+                                            Create locations
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <form action="/logout" method="POST">
+                                            @csrf
+                                            <a href="/logout" class="nav-link enable" onclick="event.preventDefault();this.closest('form').submit();" aria-disabled="false" title="Logout">
+                                                Logout
+                                            </a>
+                                        </form>
+                                    </li>
+                                @endauth
+                                @guest
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/login" title="Login">
+                                            Login
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
+                                        <a class="nav-link" href="/register" title="Register">
+                                            Register
+                                        </a>
+                                    </li>
+                                @endguest
                             </ul>
                         </div>
                     </div>

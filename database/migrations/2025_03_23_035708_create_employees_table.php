@@ -24,6 +24,7 @@ return new class extends Migration
             $table->foreignId('id_birthplace')->constrained('locations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('id_workplace')->constrained('locations')->cascadeOnDelete()->cascadeOnUpdate();
             $table->foreignId('id_profession')->constrained('professions')->cascadeOnDelete()->cascadeOnUpdate();
+            $table->foreignId('id_user')->constrained('users')->cascadeOnDelete()->cascadeOnUpdate();
             $table->timestamps();
         });
     }

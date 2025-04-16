@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\File;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Str;
 
 class Employee extends Model
@@ -52,6 +53,13 @@ class Employee extends Model
         );
     }
 
+    public function user()
+    {
+        return $this->belongsTo(
+            User::class,'user_id','id'
+        );
+    }
+
     protected static function boot(): void
     {
         parent::boot();
@@ -69,6 +77,14 @@ class Employee extends Model
 
     protected static function booted(): void
     {
+        static::creating(
+            function ($employee)
+            {
+                if (Auth::check() && is_null($employee->id_user)):
+                    $employee->id_user = Auth::id();
+                endif;
+            }
+        );
         static::deleting(
             function ($employee)
             {

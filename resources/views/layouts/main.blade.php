@@ -35,6 +35,11 @@
                                         </a>
                                     </li>
                                     <li class="nav-item">
+                                        <a class="nav-link" href="{{route('professions.create')}}" title="Create professions">
+                                            Create professions
+                                        </a>
+                                    </li>
+                                    <li class="nav-item">
                                         <a class="nav-link" href="{{route('courses.create')}}" title="Create courses">
                                             Create courses
                                         </a>

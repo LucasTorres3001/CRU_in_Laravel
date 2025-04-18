@@ -17,7 +17,7 @@
                         <div class="carousel-inner">
                             @foreach ($employee->photos as $index => $photo)
                                 <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
-                                    <img src="/employees/img/{{$photo->file_path ? $photo->file_path : 'No_Image.png'}}" class="d-block w-100" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
+                                    <img src="/employees/img/{{$photo->file_path}}" class="d-block w-100" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
                                 </div>
                             @endforeach
                         </div>
@@ -31,9 +31,7 @@
                         </button>
                     </div>
                 @else
-                    @foreach ($employee->photos as $photo)
-                        <img src="/employees/img/{{$photo->file_path}}" alt="{{$employee->name}} {{$employee->surname}}" class="img-fluid" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
-                    @endforeach
+                    <img src="/employees/img/{{$employee->photos->first() ?  $employee->photos->first()->file_path : 'No_Image.png'}}" alt="{{$employee->name}} {{$employee->surname}}" class="img-fluid" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
                 @endif
             </div>
             <div id="info-container" class="col-md-6">

@@ -22,7 +22,7 @@ class StoreLocationRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'city' => 'required|string|max:199',
+            'city' => 'required|string|max:199|unique:locations,city',
             'state' => 'required',
             'ddd' => 'nullable|integer',
             'region' => 'required|string'
@@ -37,6 +37,7 @@ class StoreLocationRequest extends FormRequest
         return [
             'city.required' => 'City name cannot be null!',
             'city.max' => 'City name exceeded the character limit!',
+            'city.unique' => 'City already exists in the system.',
             'state.required' => 'State cannot be null!',
             'region.required' => 'Region cannot be null!'
         ];

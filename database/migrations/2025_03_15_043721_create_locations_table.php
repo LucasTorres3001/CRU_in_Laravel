@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('locations', function (Blueprint $table) {
             $table->id();
-            $table->string('city',199);
+            $table->string('city',199)->unique('city');
             $table->string('state',2);
             $table->unsignedTinyInteger('ddd')->nullable(true);
             $table->string('region',199);

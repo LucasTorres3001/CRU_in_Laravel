@@ -22,7 +22,7 @@ class StorePhotosRequest extends FormRequest
     public function rules(): array
     {
         return [
-            'photos.*' => 'required|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
+            'photos.*' => 'nullable|image|mimes:jpg,jpeg,png,gif,webp|max:2048',
         ];
     }
 
@@ -32,7 +32,6 @@ class StorePhotosRequest extends FormRequest
     public function messages(): array
     {
         return [
-            'photos.*.required' => 'At least one photo is required.',
             'photos.*.image' => 'Only image files are allowed.',
             'photos.*.mimes' => 'Only JPG, JPEG, PNG, GIF or WEBP are allowed.',
             'photos.*.max' => 'Each image must be max 2MB.'

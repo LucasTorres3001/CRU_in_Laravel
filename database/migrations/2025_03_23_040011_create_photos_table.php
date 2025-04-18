@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('photos', function (Blueprint $table) {
             $table->foreignId('id_employee')->constrained('employees')->cascadeOnUpdate()->cascadeOnDelete();
-            $table->string('file_path', 255);
+            $table->string('file_path', 255)->nullable();
             $table->timestamps();
         });
     }

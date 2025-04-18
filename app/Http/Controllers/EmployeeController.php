@@ -65,9 +65,16 @@ class EmployeeController extends Controller
         return redirect()->route('employees.create')->with('success', 'Employee successfully registered!');
     }
 
-    public function dashboard()
+    /**
+     * Display the specified resource.
+     */
+    public function show(string $slug)
     {
-        return view('employees.dashboard', ['employees' => Employee::all()]);
+        return view('employees.show',
+            [
+                'employee' => Employee::where('slug', $slug)->firstOrFail()
+            ]
+        );
     }
 
     /**
@@ -95,16 +102,16 @@ class EmployeeController extends Controller
         if ($updatePhotosRequest->hasFile('new_photos')):
             if ($employee->photos->count() > 0):
                 foreach ($employee->photos as $photo):
-                    $imagePath = public_path('\\employees\img\\'.$photo->file_path);
-                    if (is_file($imagePath)):
-                        unlink($imagePath);
+                    $image_path = public_path('\\employees\img\\'.$photo->file_path);
+                    if (is_file($image_path)):
+                        unlink($image_path);
                     endif;
                 endforeach;
                 $employee->photos()->delete();
             endif;
-            foreach ($updatePhotosRequest->file('new_photos') as $photos):
-                $photoName = sha1($photos->getClientOriginalName().time()).".{$photos->getClientOriginalExtension()}";
-                $photos->move(public_path('employees/img/'), $photoName);
+            foreach ($updatePhotosRequest->file('new_photos') as $photo):
+                $photoName = sha1($photo->getClientOriginalName().time()).".{$photo->getClientOriginalExtension()}";
+                $photo->move(public_path('employees/img/'), $photoName);
                 $employee->photos()->create(
                     ['file_path' => $photoName]
                 );
@@ -123,15 +130,10 @@ class EmployeeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Dashboard page
      */
-    public function show(string $slug)
+    public function dashboard()
     {
-        $employee = Employee::where('slug', $slug)->firstOrFail();
-        return view('employees.show',
-            [
-                'employee' => $employee
-            ]
-        );
+        return view('employees.dashboard', ['employees' => Employee::all()]);
     }
 }

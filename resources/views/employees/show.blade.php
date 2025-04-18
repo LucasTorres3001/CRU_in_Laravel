@@ -17,7 +17,7 @@
                         <div class="carousel-inner">
                             @foreach ($employee->photos as $index => $photo)
                                 <div class="carousel-item {{$index == 0 ? 'active' : ''}}">
-                                    <img src="/employees/img/{{$photo->file_path}}" class="d-block w-100" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
+                                    <img src="/employees/img/{{$photo->file_path ? $photo->file_path : 'No_Image.png'}}" class="d-block w-100" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
                                 </div>
                             @endforeach
                         </div>

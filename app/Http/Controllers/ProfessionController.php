@@ -42,10 +42,10 @@ class ProfessionController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreProfessionRequest $requestProfession)
+    public function store(StoreProfessionRequest $storeProfessionRequest)
     {
         Profession::create(
-            $requestProfession->validated()
+            $storeProfessionRequest->validated()
         );
        return redirect()->route('professions.create')->with('success', 'Profession registered successfully!');
     }

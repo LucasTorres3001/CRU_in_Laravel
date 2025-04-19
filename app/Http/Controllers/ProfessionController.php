@@ -21,20 +21,17 @@ class ProfessionController extends Controller
      */
     public function create()
     {
-        $courses = Course::all();
-
-        $professions = [
-            'Administrator', 'Attorney', 'Data Analyst', 'Systems analyst', 'Architect', 'Autopsy assistant', 'Back-end Developer',
-            'Biomedical', 'Chef', 'Counter', 'Database Administrator', 'Police chief', 'Dentist', 'Designer', 'Economist',
-            'Nurse', 'Civil Engineer', 'Computer Engineer', 'Software Engineer', 'Electrical Engineer', 'Mechanical Engineer',
-            'Physiotherapist', 'Front-end Developer', 'Full-stack Developer', 'Geologist', 'Journalist', 'Judge', 'Coroner',
-            'Veterinary doctor', 'Meteorologist', 'Nutritionist', 'Oceanographer', 'Personal Trainer', 'Teacher', 'Product Owner',
-            'Psychologist', 'Advertising', 'Scrum Master', 'Web Developer', 'Zootechnician'
-        ];
         return view('professions.create',
             [
-                'courses' => $courses,
-                'professions' => $professions
+                'courses' => Course::all(),
+                'professions' => [
+                    'Administrator', 'Attorney', 'Data Analyst', 'Systems analyst', 'Architect', 'Autopsy assistant', 'Back-end Developer',
+                    'Biomedical', 'Chef', 'Counter', 'Database Administrator', 'Police chief', 'Dentist', 'Designer', 'Economist',
+                    'Nurse', 'Civil Engineer', 'Computer Engineer', 'Software Engineer', 'Electrical Engineer', 'Mechanical Engineer',
+                    'Physiotherapist', 'Front-end Developer', 'Full-stack Developer', 'Geologist', 'Journalist', 'Judge', 'Coroner',
+                    'Veterinary doctor', 'Meteorologist', 'Nutritionist', 'Oceanographer', 'Personal Trainer', 'Teacher', 'Product Owner',
+                    'Psychologist', 'Advertising', 'Scrum Master', 'Web Developer', 'Zootechnician'
+                ]
             ]
         );
     }

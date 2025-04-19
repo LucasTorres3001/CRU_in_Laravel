@@ -20,15 +20,18 @@ class CourseController extends Controller
      */
     public function create()
     {
-        $courses = [
-            'Business Administration', 'Architecture', 'Biomedicine', 'Accounting Sciences', 'computer Science', 'Design', 'Right',
-            'Economy', 'Physical education', 'Nursing', 'Civil Engineering', 'Computer Engineering', 'Software Engineering',
-            'Electronic Engineering', 'Mechanical Engineering', 'Physiotherapy', 'Geology', 'Gastronomy', 'Journalism', 'Medicine',
-            'Veterinary medicine', 'Meteorology', 'Nutrition', 'Oceanography', 'Dentistry', 'Pedagogy', 'Psychology',
-            'Advertising and propaganda', 'Information System', 'There is no need for higher education training.',
-            'Technologist in Systems Analysis and Development', 'Zootechnics'
-        ];
-        return view('courses.create', ['courses' => $courses]);
+        return view('courses.create',
+            [
+                'courses' => [
+                    'Business Administration', 'Architecture', 'Biomedicine', 'Accounting Sciences', 'computer Science', 'Design', 'Right',
+                    'Economy', 'Physical education', 'Nursing', 'Civil Engineering', 'Computer Engineering', 'Software Engineering',
+                    'Electronic Engineering', 'Mechanical Engineering', 'Physiotherapy', 'Geology', 'Gastronomy', 'Information System',
+                    'Journalism', 'Medicine', 'Veterinary medicine', 'Meteorology', 'Nutrition', 'Oceanography', 'Dentistry', 'Pedagogy',
+                    'Psychology', 'Advertising and propaganda', 'There is no need for higher education training.',
+                    'Technologist in Systems Analysis and Development', 'Zootechnics'
+                ]
+            ]
+        );
     }
 
     /**

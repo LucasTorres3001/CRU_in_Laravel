@@ -24,7 +24,7 @@
                 <div id="cards-container" class="row row-cols-1 row-cols-md-4 g-4">
                     @foreach ($employees as $employee)
                         <div class="col">
-                            <div class="card">
+                            <div class="card bg-dark text-white">
                                 <img src="/employees/img/{{$employee->photos->first() ? $employee->photos->first()->file_path : 'No_Image.png'}}" class="card-img-top" alt="{{$employee->name}} {{$employee->surname}}" title="{{$employee->name}} {{$employee->surname}}">
                                 <div class="card-body">
                                     @if ($employee->date_of_birth)

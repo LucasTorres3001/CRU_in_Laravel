@@ -53,6 +53,7 @@
                         <path d="M4.176 9.032a.5.5 0 0 0-.656.327l-.5 1.7a.5.5 0 0 0 .294.605l4.5 1.8a.5.5 0 0 0 .372 0l4.5-1.8a.5.5 0 0 0 .294-.605l-.5-1.7a.5.5 0 0 0-.656-.327L8 10.466z"/>
                     </svg> {{$employee->profession->course->course_name}}
                 </p>
+                <p>{{$employee->user->name}}</p>
                 @if ($employee->gender)
                     <p>
                         @if ($employee->gender == 'female')

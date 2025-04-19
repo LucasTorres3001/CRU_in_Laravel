@@ -25,11 +25,11 @@ Route::get('/', function () {
 Route::get('/', [EmployeeController::class, 'index'])->name('home');
 Route::get('/employees/create', [EmployeeController::class, 'create'])->name('employees.create')->middleware('auth');
 Route::post('/employees/create', [EmployeeController::class,'store'])->name('employees.store');
-Route::get('/employees/dashboard', [EmployeeController::class, 'dashboard'])->name('employees.dashboard');
-Route::get('/employees/edit/{slug}', [EmployeeController::class, 'edit'])->name('employees.edit');
+Route::get('/employees/dashboard', [EmployeeController::class, 'dashboard'])->name('employees.dashboard')->middleware('auth');
+Route::get('/employees/edit/{slug}', [EmployeeController::class, 'edit'])->name('employees.edit')->middleware('auth');
 Route::get('/employees/{slug}', [EmployeeController::class, 'show'])->name('employees.show');
-Route::put('employees/{slug}', [EmployeeController::class, 'update'])->name('employees.update');
-Route::delete('/employees/{slug}', [EmployeeController::class, 'destroy'])->name('employees.delete');
+Route::put('employees/{slug}', [EmployeeController::class, 'update'])->name('employees.update')->middleware('auth');
+Route::delete('/employees/{slug}', [EmployeeController::class, 'destroy'])->name('employees.delete')->middleware('auth');
 
 /* ---------------------------------------------------------- ** PROFESSIONS ** ---------------------------------------------------------- */
 Route::get('/professions/create', [ProfessionController::class, 'create'])->name('professions.create');

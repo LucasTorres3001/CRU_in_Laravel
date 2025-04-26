@@ -59,7 +59,7 @@ class User extends Authenticatable
         'profile_photo_url',
     ];
 
-    public function employees()
+    public function employees(): HasMany
     {
         return $this->hasMany(
             Employee::class,'id_user'

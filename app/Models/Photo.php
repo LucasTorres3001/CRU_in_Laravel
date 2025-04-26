@@ -12,7 +12,7 @@ class Photo extends Model
 
     protected $fillable = ['id_employee', 'file_path'];
 
-    public function employee()
+    public function employee(): BelongsTo
     {
         return $this->belongsTo(
             Employee::class,'id_employee','id'

@@ -28,7 +28,7 @@ Route::post('/employees/create', [EmployeeController::class,'store'])->name('emp
 Route::get('/employees/dashboard', [EmployeeController::class, 'dashboard'])->name('employees.dashboard')->middleware('auth');
 Route::get('/employees/edit/{slug}', [EmployeeController::class, 'edit'])->name('employees.edit')->middleware('auth');
 Route::get('/employees/{slug}', [EmployeeController::class, 'show'])->name('employees.show');
-Route::put('employees/{slug}', [EmployeeController::class, 'update'])->name('employees.update')->middleware('auth');
+Route::put('/employees/{slug}', [EmployeeController::class, 'update'])->name('employees.update')->middleware('auth');
 Route::delete('/employees/{slug}', [EmployeeController::class, 'destroy'])->name('employees.delete')->middleware('auth');
 
 /* ---------------------------------------------------------- ** PROFESSIONS ** ---------------------------------------------------------- */

@@ -11,7 +11,7 @@ class Profession extends Model
 
     protected $fillable = ['profession_name', 'salary', 'id_course'];
 
-    public function course()
+    public function course(): BelongsTo
     {
         return $this->belongsTo(
             Course::class,'id_course','id'

@@ -25,35 +25,35 @@ class Employee extends Model
         'id_profession'
     ];
 
-    public function photos()
+    public function photos(): HasMany
     {
         return $this->hasMany(
             Photo::class,'id_employee'
         );
     }
 
-    public function birthplace()
+    public function birthplace(): BelongsTo
     {
         return $this->belongsTo(
             Location::class,'id_birthplace','id'
         );
     }
 
-    public function workplace()
+    public function workplace(): BelongsTo
     {
         return $this->belongsTo(
             Location::class,'id_workplace','id'
         );
     }
 
-    public function profession()
+    public function profession(): BelongsTo
     {
         return $this->belongsTo(
             Profession::class,'id_profession','id'
         );
     }
 
-    public function user()
+    public function user(): BelongsTo
     {
         return $this->belongsTo(
             User::class,'id_user','id'

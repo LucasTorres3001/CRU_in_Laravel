@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Profession;
 use App\Models\Course;
 use App\Http\Requests\StoreProfessionRequest;
+use Illuminate\View\View;
 
 class ProfessionController extends Controller
 {
@@ -19,7 +20,7 @@ class ProfessionController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('professions.create',
             [

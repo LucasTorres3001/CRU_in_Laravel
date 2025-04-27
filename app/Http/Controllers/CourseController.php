@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Course;
 use App\Http\Requests\StoreCourseRequest;
+use Illuminate\View\View;
 
 class CourseController extends Controller
 {
@@ -18,7 +19,7 @@ class CourseController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('courses.create',
             [

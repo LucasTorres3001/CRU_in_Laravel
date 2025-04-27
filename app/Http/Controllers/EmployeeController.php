@@ -10,13 +10,14 @@ use App\Http\Requests\StoreEmployeeRequest;
 use App\Http\Requests\StorePhotosRequest;
 use App\Http\Requests\UpdateEmployeeRequest;
 use App\Http\Requests\UpdatePhotosRequest;
+use Illuminate\View\View;
 
 class EmployeeController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(): View
     {
         $search = request('search');
         if ($search):
@@ -35,7 +36,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('employees.create',
             [
@@ -68,7 +69,7 @@ class EmployeeController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $slug)
+    public function show(string $slug): View
     {
         return view('employees.show',
             [
@@ -80,7 +81,7 @@ class EmployeeController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(string $slug)
+    public function edit(string $slug): View
     {
         return view('employees.edit',
             [
@@ -132,7 +133,7 @@ class EmployeeController extends Controller
     /**
      * Dashboard page
      */
-    public function dashboard()
+    public function dashboard(): View
     {
         return view('employees.dashboard', ['employees' => Employee::all()]);
     }

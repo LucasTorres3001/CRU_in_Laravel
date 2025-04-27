@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Location;
 use App\Http\Requests\StoreLocationRequest;
+use Illuminate\View\View;
 
 class LocationController extends Controller
 {
@@ -18,7 +19,7 @@ class LocationController extends Controller
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
+    public function create(): View
     {
         return view('locations.create',
             [

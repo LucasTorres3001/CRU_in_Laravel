@@ -77,7 +77,7 @@ class LocationController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Location $location)
+    public function update(Location $location)
     {
         //
     }

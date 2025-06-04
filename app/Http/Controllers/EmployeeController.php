@@ -3,7 +3,6 @@
 namespace App\Http\Controllers;
 
 use App\Models\Employee;
-use App\Models\Photo;
 use App\Models\Profession;
 use App\Models\Location;
 use App\Http\Requests\StoreEmployeeRequest;

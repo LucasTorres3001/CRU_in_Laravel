@@ -67,7 +67,7 @@ class ProfessionController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Profession $profession)
+    public function update(Profession $profession)
     {
         //
     }

@@ -134,6 +134,20 @@ class EmployeeController extends Controller
      */
     public function dashboard(): View
     {
-        return view('employees.dashboard', ['employees' => Employee::all()]);
+        return view(
+            'employees.dashboard',
+            [
+                'employees' => Employee::with(
+                    relations:[
+                        'profession:id,salary',
+                        'birthplace:id,city,state'
+                    ]
+                )->paginate(
+                    columns:[
+                        'name','surname','slug','id_birthplace','id_profession'
+                    ]
+                )
+            ]
+        );
     }
 }
